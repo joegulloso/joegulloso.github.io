@@ -86,8 +86,15 @@ function update() {
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = '#0f0';
+
+  const grad = ctx.createLinearGradient(platform.x, platform.y, platform.x, platform.y + platform.height);
+  grad.addColorStop(0, '#0f0');
+  grad.addColorStop(1, '#070');
+  ctx.fillStyle = grad;
   ctx.fillRect(platform.x, platform.y, platform.width, platform.height);
+  ctx.strokeStyle = '#0a0';
+  ctx.strokeRect(platform.x, platform.y, platform.width, platform.height);
+
 
   ctx.beginPath();
   ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
