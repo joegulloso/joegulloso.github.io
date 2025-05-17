@@ -6,13 +6,17 @@
   <style>
     body { margin: 0; overflow: hidden; background: #222; color: #fff; font-family: sans-serif; text-align: center; }
     canvas { background: #333; display: block; margin: 0 auto; }
+
     #title { position: absolute; top: 10px; left: 50%; transform: translateX(-50%); font-size: 32px; margin: 0; }
     #score { position: absolute; top: 50px; left: 50%; transform: translateX(-50%); font-size: 20px; }
+
     #message { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 40px; display: none; }
   </style>
 </head>
 <body>
+
   <h1 id="title">Balance the Ball</h1>
+
   <div id="score">Score: 0</div>
   <canvas id="gameCanvas" width="600" height="400"></canvas>
   <div id="message">Game Over<br>Press Space to Restart</div>

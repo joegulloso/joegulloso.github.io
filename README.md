@@ -1,8 +1,11 @@
 # joegulloso.github.io
 
 This repository hosts a simple game for balancing a ball on a moving platform.
+
 Open `index.html` in a modern browser to play. The page shows a title above the
 score and the platform is drawn with a subtle gradient for a nicer look.
+
+
 
 **Controls**
 
