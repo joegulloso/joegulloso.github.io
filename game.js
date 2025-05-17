@@ -1,10 +1,11 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
+const platformWidth = 120;
 const platform = {
-  x: canvas.width / 2 - 50,
+  x: canvas.width / 2 - platformWidth / 2,
   y: canvas.height - 60,
-  width: 100,
+  width: platformWidth,
   height: 10,
   speed: 2,
   dir: 1
@@ -25,6 +26,7 @@ let score = 0;
 
 function resetGame() {
   platform.x = canvas.width / 2 - platform.width / 2;
+  platform.speed = 2;
   platform.dir = 1;
   ball.x = platform.x + platform.width / 2;
   ball.y = platform.y - ball.radius;
@@ -41,8 +43,14 @@ function update() {
   if (gameOver) return;
 
   platform.x += platform.speed * platform.dir;
-  if (platform.x <= 0 || platform.x + platform.width >= canvas.width) {
+  if (platform.x <= 0) {
+    platform.x = 0;
     platform.dir *= -1;
+    platform.speed = Math.min(platform.speed * 1.05, 6);
+  } else if (platform.x + platform.width >= canvas.width) {
+    platform.x = canvas.width - platform.width;
+    platform.dir *= -1;
+    platform.speed = Math.min(platform.speed * 1.05, 6);
   }
 
   if (keys['ArrowLeft']) ball.vx -= 0.2;
